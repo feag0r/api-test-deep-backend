@@ -1,9 +1,9 @@
 package net.tokareva.apitestdeepbackend.repository;
 
-import net.tokareva.apitestdeepbackend.entity.TestTable2;
+import net.tokareva.apitestdeepbackend.entity.Subject;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface TestTable2Repository extends JpaRepository<TestTable2, UUID> {
+public interface SubjectRepository extends JpaRepository<Subject, UUID> {
 }

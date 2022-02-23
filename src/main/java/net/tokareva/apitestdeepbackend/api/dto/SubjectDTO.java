@@ -7,24 +7,25 @@ import lombok.Setter;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlRootElement(name = "testTable1")
+@XmlRootElement(name = "subject")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TestTable1 implements Serializable {
+public class SubjectDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @XmlAttribute(name = "id")
+    @XmlAttribute(name = "id", required = true)
     private UUID id;
-
-    @XmlElement(name="testValue1")
-    private String testValue1;
-
-    @XmlElement(name="testTable2")
-    private TestTable2 testTable2;
+    @XmlElement(name="subjectName", required = true)
+    private String subjectName;
+    @XmlElement(name="subjectAccounts")
+    private List<AccountDTO> subjectAccounts;
+    @XmlElement(name="subjectAttributes")
+    private List<AttributeDTO> subjectAttributes;
 }

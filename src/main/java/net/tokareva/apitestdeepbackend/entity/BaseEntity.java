@@ -1,38 +1,32 @@
 package net.tokareva.apitestdeepbackend.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "test_table1")
 @ToString
-@RequiredArgsConstructor
-public class TestTable1 {
+@MappedSuperclass
+public abstract class BaseEntity {
 
     @Id
     @Column(name = "id", nullable = false)
     private UUID id;
 
-    @ToString.Exclude
-    @Basic(fetch = FetchType.LAZY)
-    private String testValue1;
-
-    @ManyToOne
-    @JoinColumn(name = "test_table2_id")
-    private TestTable2 testTable2;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        TestTable1 testTable1 = (TestTable1) o;
-        return id != null && Objects.equals(id, testTable1.id);
+        BaseEntity that = (BaseEntity) o;
+        return id != null && Objects.equals(id, that.id);
     }
 
     @Override

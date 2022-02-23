@@ -10,18 +10,17 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlRootElement(name = "testTable2")
+@XmlRootElement(name = "accountType")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TestTable2 implements Serializable {
+public class AccountTypeDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @XmlAttribute(name = "id")
+    @XmlAttribute(name = "id", required = true)
     private UUID id;
-
-    @XmlElement(name="testValue2")
-    private String testValue2;
+    @XmlElement(name="typeName", required = true)
+    private String typeName;
 }
