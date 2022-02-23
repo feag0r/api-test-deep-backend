@@ -1,0 +1,2 @@
+insert into test_table2 (id, test_value2) values ('F851778ECE0D4B3582A05F65F22E30A0', 'test value 2');
+insert into test_table1 (id, test_value1, test_table2_id) values ('698D02B1770A4C61AE87E04751687EE4', 'test value 1', 'F851778ECE0D4B3582A05F65F22E30A0');
